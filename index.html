@@ -73,31 +73,31 @@
     <!-- Button -->
     <div class="container">
       <button class="drumButton">
-        A <audio class="drum-audio" src="Audio/boom.wav"></audio>
+        A <audio class="drum-audio" data-key="a" src="Audio/boom.wav"></audio>
       </button>
       <button class="drumButton">
-        S <audio class="drum-audio" src="Audio/clap.wav"></audio>
+        S <audio class="drum-audio" data-key="s" src="Audio/clap.wav"></audio>
       </button>
       <button class="drumButton">
-        D <audio class="drum-audio" src="Audio/hihat.wav"></audio>
+        D <audio class="drum-audio" data-key="d" src="Audio/hihat.wav"></audio>
       </button>
       <button class="drumButton">
-        F <audio class="drum-audio" src="Audio/kick.wav"></audio>
+        F <audio class="drum-audio" data-key="f" src="Audio/kick.wav"></audio>
       </button>
       <button class="drumButton">
-        G <audio class="drum-audio" src="Audio/openhat.wav"></audio>
+        G <audio class="drum-audio" data-key="g" src="Audio/openhat.wav"></audio>
       </button>
       <button class="drumButton">
-        H <audio class="drum-audio" src="Audio/ride.wav"></audio>
+        H <audio class="drum-audio" data-key="h" src="Audio/ride.wav"></audio>
       </button>
       <button class="drumButton">
-        J <audio class="drum-audio" src="Audio/snare.wav"></audio>
+        J <audio class="drum-audio" data-key="j" src="Audio/snare.wav"></audio>
       </button>
       <button class="drumButton">
-        K <audio class="drum-audio" src="Audio/tink.wav"></audio>
+        K <audio class="drum-audio" data-key="k" src="Audio/tink.wav"></audio>
       </button>
       <button class="drumButton">
-        L <audio class="drum-audio" src="Audio/tom.wav"></audio>
+        L <audio class="drum-audio" data-key="l" src="Audio/tom.wav"></audio>
       </button>
     </div>
     <script>
@@ -111,6 +111,20 @@
           audio.play();
         });
       });
+      // // Klavye ile çalma
+
+      document.addEventListener("keydown", (event) => {
+    
+      const key = event.key.toLowerCase();
+
+    
+      const audio = document.querySelector(`audio[data-key="${key}"]`);
+      if (audio) {
+        audio.currentTime = 0; 
+        audio.play();
+      }
+  });
+      
     </script>
   </body>
 </html>
